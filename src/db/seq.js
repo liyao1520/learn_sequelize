@@ -1,6 +1,7 @@
 const { Sequelize } = require("sequelize");
-const sequelize = new Sequelize("test", "root", "123456", {
-  host: "localhost",
+const { MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, MYSQL_HOST } = require("../app/config");
+const sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
+  host: MYSQL_HOST,
   dialect: "mysql",
 });
 (async () => {
